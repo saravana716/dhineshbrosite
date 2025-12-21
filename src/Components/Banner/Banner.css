@@ -1,0 +1,345 @@
+.Banner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    margin-top: 80vh;
+}
+.Banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+  text-align: center;
+  font-size: 18px;
+  background: yellow;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  .banner-container {
+          width: 100%;
+          height: 100vh;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .mySwiper {
+          width: 100%;
+          height: 100%;
+        }
+
+        .slide-content {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        .banner-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          animation: zoomIn 10s ease-in-out infinite;
+        }
+
+        @keyframes zoomIn {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        .banner-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.5) 100%
+          );
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+        }
+
+        .banner-text {
+          text-align: center;
+          color: white;
+          padding: 20px;
+          animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .banner-title {
+          font-size: 3.5rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+          animation: slideInLeft 1s ease-out;
+          letter-spacing: 2px;
+        }
+
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .banner-subtitle {
+          font-size: 1.5rem;
+          margin-bottom: 2rem;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+          animation: slideInRight 1s ease-out;
+          animation-delay: 0.2s;
+          opacity: 0;
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .banner-btn {
+          padding: 15px 40px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          background: linear-gradient(135deg, #8B1C62 0%, #D4A574 100%);
+          color: white;
+          border: none;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          box-shadow: 0 4px 15px rgba(139, 28, 98, 0.4);
+          animation: bounceIn 1s ease-out;
+          animation-delay: 0.4s;
+          opacity: 0;
+          animation-fill-mode: forwards;
+        }
+
+        @keyframes bounceIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.3) translateY(50px);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          70% {
+            transform: scale(0.9);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+
+        .banner-btn:hover {
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 6px 25px rgba(139, 28, 98, 0.6);
+          background: linear-gradient(135deg, #D4A574 0%, #8B1C62 100%);
+        }
+
+        .banner-btn:active {
+          transform: translateY(-1px);
+        }
+
+        /* Button Style Variations */
+        .banner-btn.style1 {
+          background: linear-gradient(135deg, #8B1C62 0%, #D4A574 100%);
+          box-shadow: 0 4px 15px rgba(139, 28, 98, 0.4);
+        }
+
+        .banner-btn.style1:hover {
+          background: linear-gradient(135deg, #D4A574 0%, #8B1C62 100%);
+          box-shadow: 0 6px 25px rgba(139, 28, 98, 0.6);
+        }
+
+        .banner-btn.style2 {
+          background: linear-gradient(135deg, #1B5E3F 0%, #7FFF7F 100%);
+          box-shadow: 0 4px 15px rgba(27, 94, 63, 0.4);
+          border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .banner-btn.style2:hover {
+          background: linear-gradient(135deg, #7FFF7F 0%, #1B5E3F 100%);
+          box-shadow: 0 6px 25px rgba(27, 94, 63, 0.6);
+          border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .banner-btn.style3 {
+          background: linear-gradient(135deg, #40E0D0 0%, #1B5E3F 100%);
+          box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+          border-radius: 10px;
+        }
+
+        .banner-btn.style3:hover {
+          background: linear-gradient(135deg, #1B5E3F 0%, #40E0D0 100%);
+          box-shadow: 0 6px 25px rgba(64, 224, 208, 0.6);
+          transform: translateY(-3px) scale(1.05) rotate(2deg);
+        }
+
+        .banner-btn.style4 {
+          background: transparent;
+          border: 3px solid #D4A574;
+          box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .banner-btn.style4::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #D4A574 0%, #8B1C62 100%);
+          transition: left 0.4s ease;
+          z-index: -1;
+        }
+
+        .banner-btn.style4:hover::before {
+          left: 0;
+        }
+
+        .banner-btn.style4:hover {
+          border-color: #8B1C62;
+          box-shadow: 0 6px 25px rgba(212, 165, 116, 0.6);
+        }
+
+        /* Swiper Navigation Buttons */
+        :global(.swiper-button-next),
+        :global(.swiper-button-prev) {
+          color: white;
+          background: rgba(139, 28, 98, 0.7);
+          padding: 30px;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          transition: all 0.3s ease;
+        }
+
+        :global(.swiper-button-next:hover),
+        :global(.swiper-button-prev:hover) {
+          background: rgba(139, 28, 98, 0.9);
+          transform: scale(1.1);
+        }
+
+        :global(.swiper-button-next::after),
+        :global(.swiper-button-prev::after) {
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        /* Swiper Pagination */
+        :global(.swiper-pagination-bullet) {
+          background: white;
+          opacity: 0.5;
+          width: 12px;
+          height: 12px;
+          transition: all 0.3s ease;
+        }
+
+        :global(.swiper-pagination-bullet-active) {
+          background: #8B1C62;
+          opacity: 1;
+          width: 30px;
+          border-radius: 6px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .banner-container {
+            height: 70vh;
+          }
+
+          .banner-title {
+            font-size: 2rem;
+          }
+
+          .banner-subtitle {
+            font-size: 1.1rem;
+          }
+
+          .banner-btn {
+            padding: 12px 30px;
+            font-size: 0.9rem;
+          }
+
+          :global(.swiper-button-next),
+          :global(.swiper-button-prev) {
+            width: 40px;
+            height: 40px;
+            padding: 20px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .banner-container {
+            height: 50vh;
+          }
+
+          .banner-title {
+            font-size: 1.5rem;
+          }
+
+          .banner-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+          }
+
+          .banner-btn {
+            padding: 10px 25px;
+            font-size: 0.8rem;
+          }
+        }

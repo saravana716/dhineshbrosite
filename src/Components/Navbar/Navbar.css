@@ -1,0 +1,47 @@
+.navbar{
+    width: 100%;
+    height:10vh;
+    background-color:#2C2C2C;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: #F5F5DC;
+}
+.navbar-inner{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-logo{
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+}
+.nav-logo h1{
+    font-size: 18px;
+}
+.nav-content{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-content li{
+    list-style: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    /* text-transform: uppercase; */
+}
+.fav button{
+    padding: 8px 16px;
+    background-color: #F5F5DC;
+    color: #2C2C2C;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}

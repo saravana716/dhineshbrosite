@@ -1,0 +1,64 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body, html{
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Bodoni Moda', serif;
+  font-family: 'Quicksand', sans-serif;
+
+
+}
+#app{
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+.videosection{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: antiquewhite;
+  background: url("../src/assets/vi.webp");
+}
+.videosectioninner{
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.ck1{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.ck1 video{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.vidoess{
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 100px;
+
+  
+}
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Great+Vibes&family=Quicksand:wght@300..700&family=Sacramento&family=Satisfy&display=swap');
+
+
+
