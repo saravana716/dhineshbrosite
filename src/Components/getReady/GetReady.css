@@ -33,7 +33,17 @@
   z-index: 15;
   animation: tabPulse 3s ease-in-out infinite;
 }
-
+.zdiv{
+  position: absolute;
+  top: 0;
+  right:0;
+  z-index: 10;
+  width: 27%;
+  height:100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
 @keyframes tabPulse {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }

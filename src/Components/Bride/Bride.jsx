@@ -22,6 +22,7 @@ const Bride = () => {
       <style>{`
         .bride-section {
           width: 100%;
+          height:100vh;
           background: linear-gradient(180deg, #f5f1e8 0%, #e8dcc4 100%);
               background: linear-gradient(180deg, #E8DCC4 0%, #D4C5A9 100%);
           padding: 80px 20px;
@@ -34,6 +35,7 @@ const Bride = () => {
           grid-template-columns: 1.4fr 1fr;
           gap: 40px;
           align-items: stretch;
+          height:100%;
         }
 
         .columns {

@@ -2,6 +2,7 @@ import React from 'react';
 import re from '../../assets/re.png';
 // import re1 from '../../assets/gift-removebg-preview.png';
 import re2 from '../../assets/pp0.png';
+import re3 from '../../assets/thariimage.jpg';
 import './GetReady.css';
 
 const GetReady = () => {
@@ -76,7 +77,8 @@ const GetReady = () => {
             }}
           />
         ))}
-      <img src={re2} alt="" className='op'/>
+            <img src={re3} alt="" className='zdiv' />
+
 
       </div>
     </div>

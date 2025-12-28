@@ -8,6 +8,8 @@ import new5 from "../../assets/q3.jpg";
 import new6 from "../../assets/q7.jpg";
 import new7 from "../../assets/g8.avif";
 import new8 from "../../assets/g1.webp";
+import new9 from "../../assets/qb.jpg";
+
 const Grid = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -33,7 +35,7 @@ const Grid = () => {
     {
       title: "Love",
       quote: "Made With",
-      image:new3,
+      image: new3,
       size: "small"
     },
     {
@@ -71,13 +73,35 @@ const Grid = () => {
   return (
     <section className="categories-section">
       <style>{`
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Great+Vibes&family=Quicksand:wght@300..700&family=Sacramento&family=Satisfy&family=Uncial+Antiqua&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Great+Vibes&family=Quicksand:wght@300..700&family=Sacramento&family=Satisfy&family=Uncial+Antiqua&display=swap');
+        
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+.wer{
+width:100vw;
+height:100vh;
+position:absolute;
+left:0;
+top:0;
+}
+.wer1{
+height:100vh;
+position:absolute;
+right:0;
+top:0;
+}
         .categories-section {
-          width: 100%;
-          padding: 80px 20px;
-    background: linear-gradient(180deg, #E8DCC4 0%, #D4C5A9 100%);
+          width: 100vw;
+          height: 100vh;
+          padding: clamp(20px, 4vh, 60px) clamp(15px, 3vw, 40px);
+          background: linear-gradient(180deg, #E8DCC4 0%, #D4C5A9 100%);
           position: relative;
           overflow: hidden;
+          display: flex;
+          flex-direction: column;
         }
 
         .categories-section::before {
@@ -94,16 +118,20 @@ const Grid = () => {
         }
 
         .categories-container {
-          max-width: 1400px;
+          max-width: 100%;
+          height: 100%;
           margin: 0 auto;
           position: relative;
           z-index: 1;
+          display: flex;
+          flex-direction: column;
         }
 
         .categories-header {
           text-align: center;
-          margin-bottom: 60px;
+          margin-bottom: clamp(20px, 3vh, 40px);
           animation: fadeInDown 1s ease;
+          flex-shrink: 0;
         }
 
         @keyframes fadeInDown {
@@ -118,44 +146,45 @@ const Grid = () => {
         }
 
         .categories-main-title {
-          font-size: 3.5rem;
+          font-size: clamp(1.8rem, 5vw, 3.5rem);
           font-weight: 700;
           color: #2d3e3f;
-          margin-bottom: 1rem;
-          letter-spacing: 3px;
+          margin-bottom: 0.5rem;
+          letter-spacing: clamp(1px, 0.3vw, 3px);
           text-transform: uppercase;
           position: relative;
           display: inline-block;
           font-style: italic;
-         font-family: 'Playfair Display', serif;
-
+          font-family: 'Playfair Display', serif;
         }
 
         .categories-main-title::after {
           content: '';
           position: absolute;
-          bottom: -15px;
+          bottom: -10px;
           left: 50%;
           transform: translateX(-50%);
-          width: 100px;
-          height: 4px;
+          width: clamp(60px, 10vw, 100px);
+          height: clamp(2px, 0.3vh, 4px);
           background: linear-gradient(90deg, transparent, #C9A961, transparent);
           border-radius: 2px;
         }
 
         .categories-subtitle {
-          font-size: 1rem;
+          font-size: clamp(0.9rem, 1.5vw, 1rem);
           color: #5a6c6d;
-          margin-top: 30px;
+          margin-top: clamp(15px, 2vh, 30px);
           font-weight: 400;
         }
 
         .bento-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          grid-auto-rows: 280px;
-          gap: 20px;
+          grid-auto-rows: minmax(0, 1fr);
+          gap: clamp(10px, 1.5vw, 20px);
           animation: fadeInUp 1s ease;
+          flex: 1;
+          min-height: 0;
         }
 
         @keyframes fadeInUp {
@@ -171,15 +200,15 @@ const Grid = () => {
 
         .category-card {
           position: relative;
-          border-radius: 20px;
+          border-radius: clamp(12px, 2vw, 20px);
           overflow: hidden;
           cursor: pointer;
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           box-shadow: 0 8px 25px rgba(45, 62, 63, 0.15);
           border: 2px solid rgba(201, 169, 97, 0.2);
+          min-height: 0;
         }
 
-        /* Bento Grid Sizes - Matching your reference image layout */
         .category-card.tall-wide {
           grid-column: span 1;
           grid-row: span 2;
@@ -195,13 +224,8 @@ const Grid = () => {
           grid-row: span 1;
         }
 
-        .category-card.tall {
-          grid-column: span 1;
-          grid-row: span 2;
-        }
-
         .category-card:hover {
-          transform: translateY(-15px) scale(1.02);
+          transform: translateY(-8px) scale(1.02);
           box-shadow: 0 25px 60px rgba(45, 62, 63, 0.25);
           border-color: #C9A961;
           z-index: 10;
@@ -230,13 +254,8 @@ const Grid = () => {
           left: 0;
           width: 100%;
           height: 100%;
-        //   background: linear-gradient(135deg, rgba(45, 62, 63, 0.7) 0%, rgba(31, 43, 44, 0.5) 100%);
           transition: all 0.6s ease;
         }
-
-        // .category-card:hover .category-overlay {
-        //   background: linear-gradient(135deg, rgba(201, 169, 97, 0.85) 0%, rgba(184, 149, 111, 0.7) 100%);
-        // }
 
         .category-content {
           position: relative;
@@ -245,51 +264,49 @@ const Grid = () => {
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          padding: 35px;
+          padding: clamp(15px, 3vw, 35px);
           color: white;
         }
 
         .category-title {
-          font-size: 2rem;
+          font-size: clamp(1.2rem, 3vw, 2rem);
           font-weight: 900;
           margin-bottom: 5px;
           text-transform: uppercase;
-          letter-spacing: 2px;
+          letter-spacing: clamp(1px, 0.2vw, 2px);
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           transform: translateY(0);
           text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
           color: #E8DCC4;
-                     font-family: "Uncial Antiqua", system-ui;
-
+          font-family: "Uncial Antiqua", system-ui;
         }
 
         .category-card:hover .category-title {
-          transform: translateY(-8px) scale(1.05);
+          transform: translateY(-5px) scale(1.05);
           text-shadow: 4px 4px 18px rgba(0, 0, 0, 0.8);
           color: #ffffff;
-          letter-spacing: 3px;
+          letter-spacing: clamp(2px, 0.3vw, 3px);
         }
 
         .category-subtitle {
-          font-size: 1.1rem;
+          font-size: clamp(0.9rem, 1.8vw, 1.1rem);
           font-weight: 600;
-          letter-spacing: 1.5px;
+          letter-spacing: clamp(0.5px, 0.15vw, 1.5px);
           opacity: 0.9;
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
           text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
           color: #C9A961;
-         font-family: 'Sacramento', cursive;
+          font-family: 'Sacramento', cursive;
           font-style: italic;
         }
 
         .category-card:hover .category-subtitle {
           opacity: 1;
-          letter-spacing: 2px;
+          letter-spacing: clamp(1px, 0.2vw, 2px);
           color: #ffffff;
           transform: translateY(0);
         }
 
-        /* Shine effect on hover */
         .category-card::before {
           content: '';
           position: absolute;
@@ -313,12 +330,6 @@ const Grid = () => {
           transform: translateX(100%) translateY(100%) rotate(45deg);
         }
 
-        /* Badge Icon - Hidden */
-        .category-badge {
-          display: none;
-        }
-
-        /* Decorative corner accent */
         .category-card::after {
           content: '';
           position: absolute;
@@ -326,125 +337,77 @@ const Grid = () => {
           left: 0;
           width: 0;
           height: 0;
-          border-bottom: 60px solid rgba(201, 169, 97, 0.3);
-          border-right: 60px solid transparent;
+          border-bottom: clamp(40px, 6vh, 60px) solid rgba(201, 169, 97, 0.3);
+          border-right: clamp(40px, 6vh, 60px) solid transparent;
           transition: all 0.6s ease;
           z-index: 1;
         }
 
         .category-card:hover::after {
           border-bottom-color: rgba(232, 220, 196, 0.4);
-          border-bottom-width: 80px;
-          border-right-width: 80px;
+          border-bottom-width: clamp(50px, 8vh, 80px);
+          border-right-width: clamp(50px, 8vh, 80px);
         }
 
-        /* Responsive Design */
         @media (max-width: 1200px) {
           .bento-grid {
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 260px;
-          }
-
-          .category-card.tall-wide,
-          .category-card.tall {
-            grid-column: span 1;
-            grid-row: span 2;
-          }
-
-          .category-card.wide {
-            grid-column: span 2;
-          }
-
-          .category-card.small {
-            grid-column: span 1;
           }
         }
 
         @media (max-width: 968px) {
-          .categories-section {
-            padding: 60px 20px;
-          }
-
-          .categories-main-title {
-            font-size: 2.5rem;
-          }
-
           .bento-grid {
             grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 240px;
-            gap: 15px;
           }
 
           .category-card.tall-wide,
-          .category-card.wide,
-          .category-card.tall {
+          .category-card.wide {
             grid-column: span 2;
             grid-row: span 1;
           }
+        }
 
-          .category-card.small {
-            grid-column: span 1;
+        @media (max-width: 640px) {
+          .bento-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(8px, 2vw, 15px);
           }
 
-          .category-title {
-            font-size: 2.2rem;
-          }
-
-          .category-subtitle {
-            font-size: 1.1rem;
+          .category-card.tall-wide,
+          .category-card.wide {
+            grid-column: span 2;
+            grid-row: span 1;
           }
         }
 
         @media (max-width: 480px) {
           .categories-section {
-            padding: 40px 15px;
-          }
-
-          .categories-main-title {
-            font-size: 2rem;
-            letter-spacing: 2px;
-          }
-
-          .categories-subtitle {
-            font-size: 1rem;
+            padding: clamp(15px, 3vh, 30px) clamp(10px, 2vw, 20px);
           }
 
           .bento-grid {
             grid-template-columns: 1fr;
-            grid-auto-rows: 220px;
-            gap: 15px;
           }
 
           .category-card.tall-wide,
           .category-card.wide,
-          .category-card.tall,
           .category-card.small {
             grid-column: span 1;
             grid-row: span 1;
           }
+        }
 
-          .category-content {
-            padding: 25px;
+        @media (orientation: landscape) and (max-height: 600px) {
+          .categories-header {
+            margin-bottom: 2vh;
           }
-
-          .category-badge {
-            width: 45px;
-            height: 45px;
-            top: 20px;
-            right: 20px;
+          
+          .categories-main-title {
+            font-size: clamp(1.5rem, 4vh, 2.5rem);
           }
-
-          .badge-icon {
-            width: 22px;
-            height: 22px;
-          }
-
+          
           .category-title {
-            font-size: 1.9rem;
-          }
-
-          .category-subtitle {
-            font-size: 1rem;
+            font-size: clamp(1rem, 2.5vh, 1.5rem);
           }
         }
       `}</style>
@@ -479,6 +442,8 @@ const Grid = () => {
           ))}
         </div>
       </div>
+        <img src={new9} alt="" className='wer'/>
+
     </section>
   );
 };
