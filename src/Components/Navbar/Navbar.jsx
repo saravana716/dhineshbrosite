@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -303,9 +304,9 @@ const Navbar = () => {
           </div>
 
           <ul className="nav-content" style={{ display: isMobileMenuOpen ? 'flex' : undefined }}>
-            <li>Home</li>
+            <li><Link to="/" style={{color: 'inherit', textDecoration: 'none'}}>Home</Link></li>
+            <li><Link to="/products" style={{color: 'inherit', textDecoration: 'none'}}>Collection</Link></li>
             <li>About</li>
-            <li>Services</li>
             <li>Portfolio</li>
             <li>Contact</li>
           </ul>

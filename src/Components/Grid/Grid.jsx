@@ -8,7 +8,10 @@ import new5 from "../../assets/q3.jpg";
 import new6 from "../../assets/q7.jpg";
 import new7 from "../../assets/g8.avif";
 import new8 from "../../assets/g1.webp";
-import new9 from "../../assets/qb.jpg";
+import new9 from "../../assets/d.png";
+import new10 from "../../assets/d.png";
+import new11 from "../../assets/d.png";
+import new12 from "../../assets/d.png";
 
 const Grid = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -87,11 +90,43 @@ position:absolute;
 left:0;
 top:0;
 }
-.wer1{
-height:100vh;
+.po{
 position:absolute;
-right:0;
+right:30px;
 top:0;
+object-fit:contain;
+width:200px;
+height:200px;
+}
+.po1{
+position:absolute;
+right:30px;
+bottom:0;
+object-fit:contain;
+width:200px;
+height:200px;
+transform:rotate(90deg);
+
+}
+.po2{
+position:absolute;
+left:30px;
+top:0;
+object-fit:contain;
+width:200px;
+height:200px;
+transform:rotate(-90deg);
+
+}
+.po3{
+position:absolute;
+left:30px;
+bottom:0;
+object-fit:contain;
+width:200px;
+height:200px;
+transform:rotate(-180deg);
+
 }
         .categories-section {
           width: 100vw;
@@ -118,13 +153,19 @@ top:0;
         }
 
         .categories-container {
-          max-width: 100%;
+          width: 100%;
           height: 100%;
           margin: 0 auto;
           position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
           z-index: 1;
           display: flex;
           flex-direction: column;
+          border-left: 4px solid #293839;
+          border-right: 4px solid #293839;
+          borradius: 12px;
         }
 
         .categories-header {
@@ -183,8 +224,9 @@ top:0;
           grid-auto-rows: minmax(0, 1fr);
           gap: clamp(10px, 1.5vw, 20px);
           animation: fadeInUp 1s ease;
-          flex: 1;
-          min-height: 0;
+          // flex: 1;
+          width: 65%;
+          height: 450px;
         }
 
         @keyframes fadeInUp {
@@ -441,8 +483,11 @@ top:0;
             </div>
           ))}
         </div>
+        <img src={new9} alt="" className='po'/>
+        <img src={new10} alt="" className='po1'/>
+        <img src={new11} alt="" className='po2'/>
+        <img src={new12} alt="" className='po3'/>
       </div>
-        <img src={new9} alt="" className='wer'/>
 
     </section>
   );

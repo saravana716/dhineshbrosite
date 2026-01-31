@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Outfit:wght@200;400;700&display=swap');
+
+.filter-top-banner {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #0f1515;
+  overflow: hidden;
+}
+
+/* 1. Dynamic Mesh Gradient Background */
+.mesh-background {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+    radial-gradient(at 0% 0%, hsla(189,19%,23%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(189,19%,23%,1) 0, transparent 50%);
+  filter: blur(60px);
+  opacity: 0.6;
+  animation: meshPulse 10s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes meshPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* 2. Glass Card Container */
+.glass-card {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px 80px;
+  border-radius: 2px; /* Sharp corners for modern look */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* 3D Tilt Entrance */
+  animation: cardEntrance 1s ease-out forwards;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes cardEntrance {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) rotateX(10deg); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0); 
+  }
+}
+
+.banner-content {
+  text-align: center;
+  color: #fff;
+}
+
+/* 3. Modern Minimal Typography */
+.modern-overline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: #d4af37;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.filter-title {
+  font-family: 'Outfit', sans-serif; /* Clean Geometric Sans */
+  font-size: 4.5rem;
+  font-weight: 200; /* Light weight for elegance */
+  text-transform: uppercase;
+  letter-spacing: 15px; /* Wide spacing */
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.1);
+  
+  background: linear-gradient(to bottom, #ffffff, #aaaaaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.filter-breadcrumbs {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0.6;
+}
+
+.breadcrumb-item {
+  position: relative;
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.breadcrumb-item:hover {
+  opacity: 1;
+  color: #d4af37;
+}
+.breadcrumb-item:not(:last-child)::after {
+  content: '/';
+  margin-left: 20px;
+  opacity: 0.3;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .glass-card { padding: 40px 20px; width: 90%; }
+  .filter-title { font-size: 2.5rem; letter-spacing: 5px; }
+  .modern-overline { letter-spacing: 4px; }
+}

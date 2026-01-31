@@ -1,0 +1,20 @@
+.product-filter-page {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.filter-content-area {
+  display: flex;
+  height: 150vh; /* Independent scroll section height */
+  overflow: hidden;
+  position: relative;
+  background-color: antiquewhite;
+}
+
+@media (max-width: 768px) {
+  .filter-content-area {
+      flex-direction: column;
+      height: auto;
+  }
+}

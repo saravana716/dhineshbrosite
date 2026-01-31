@@ -1,84 +1,74 @@
 import React from 'react';
-import re from '../../assets/re.png';
-// import re1 from '../../assets/gift-removebg-preview.png';
-import re2 from '../../assets/pp0.png';
-import re3 from '../../assets/thariimage.jpg';
+// import re from '../../assets/re.png'; // Removed
+import make1 from '../../assets/make1.png';
+import make2 from '../../assets/make2.png';
+import make3 from '../../assets/make3.png';
+import make4 from '../../assets/make4.png';
+import make5 from '../../assets/make5.png';
+import make6 from '../../assets/make6.png';
+import make7 from '../../assets/make7.png';
+import make8 from '../../assets/make8.png';
+import make9 from '../../assets/make9.png';
+import make10 from '../../assets/make10.png';
+import make11 from '../../assets/make11.png';
+import make12 from '../../assets/make12.png';
 import './GetReady.css';
 
 const GetReady = () => {
+  const images = [make1, make2, make3, make4, make5, make6, make7, make8, make9, make10, make11, make12];
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // Slower, more elegant transition
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <div className='ready1'>
-      {/* New Arrivals Tab */}
-      {/* <div className="new-arrivals-tab">NEW ARRIVALS</div> */}
-      
-      {/* Browser-style dots */}
-      <div className="browser-dots">
-        <span className="dot dot-blue"></span>
-        <span className="dot dot-green"></span>
-        <span className="dot dot-yellow"></span>
-      </div>
-
       <div className='ready'>
-        {/* Animated floating sarees */}
-        {/* <div className="floating-saree saree-1">👗</div>
-        <div className="floating-saree saree-2">👗</div>
-        <div className="floating-saree saree-3">🥻</div>
-        <div className="floating-saree saree-4">🥻</div> */}
+        
+        {/* Content Section */}
+        <div className="content-wrapper">
+           {/* Decorative Background Ring */}
+           <div className="deco-ring"></div>
 
-        {/* Animated hearts */}
-        <div className="heart heart-1">💕</div>
-        {/* <div className="heart heart-2">💗</div> */}
-        <div className="heart heart-3">💖</div>
-        {/* <div className="heart heart-4">❤️</div> */}
-        <div className="heart heart-5">💝</div>
+           {/* Modern Text Label */}
+           <div className="modern-overline">Are You Ready?</div>
 
-        {/* Decorative flowers */}
-        {/* <div className="flower flower-1">🌺</div>
-        <div className="flower flower-2">🌸</div>
-        <div className="flower flower-3">🌹</div> */}
-
-        {/* Left badge image with animation */}
-        <img src={re} alt="Are You Ready Badge" className='readys' />
-
-        {/* Main heading with elegant styling */}
-        <div className="heading-container">
-          <h1 className="elegant-heading">
-            <span className="heading-word">Elegance Begins with the Perfect Drape</span>
-            
-          </h1>
-          <p className="tagline">"Where sarees meet soulmates - Book Your Appointment"</p>
+           <h1 className="elegant-heading">
+             Elegance Begins with the<br/>Perfect Drape
+           </h1>
+           
+           <p className="tagline">"Where sarees meet soulmates — timeless tradition woven for you."</p>
+           
+           <a href="#appointment" className="cta-button">
+             Book Your Appointment
+           </a>
         </div>
 
-        {/* Right gift image with animation */}
-        {/* <img src={re1} alt="Gift" className='check' /> */}
+        {/* Right Side Slider */}
+        <div className="slider-container">
+          {images.map((img, index) => (
+            <img 
+              key={index} 
+              src={img} 
+              alt={`Exquisite Saree Collection ${index + 1}`} 
+              className={`zdiv ${index === currentImageIndex ? 'active' : ''}`} 
+            />
+          ))}
+          {/* Slider Overlay Gradient for smooth blending */}
+          <div style={{
+            position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', 
+            background: 'linear-gradient(to right, rgba(42,36,56,0.8) 0%, transparent 40%)',
+            pointerEvents: 'none'
+          }}></div>
+        </div>
 
-        {/* Couple emoji */}
-        {/* <div className="couple-emoji">👰‍♀️🤵‍♂️</div> */}
 
-        {/* Sparkle effects */}
-        <div className="sparkle sparkle-1">✨</div>
-        <div className="sparkle sparkle-2">✨</div>
-        <div className="sparkle sparkle-3">✨</div>
-        <div className="sparkle sparkle-4">✨</div>
-        <div className="sparkle sparkle-5">✨</div>
-        <div className="sparkle sparkle-6">⭐</div>
-        <div className="sparkle sparkle-7">⭐</div>
-        <div className="sparkle sparkle-8">💫</div>
 
-        {/* Glitter particles */}
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="glitter"
-            style={{
-              left: `${5 + i * 4.5}%`,
-              animationDelay: `${i * 0.2}s`,
-              animationDuration: `${3 + (i % 4)}s`
-            }}
-          />
-        ))}
-            <img src={re3} alt="" className='zdiv' />
-
+        {/* Minimalist Sparkles - Removed as requested */}
 
       </div>
     </div>

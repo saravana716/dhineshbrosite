@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Outfit:wght@400;500;600&display=swap');
+
+.filter-sidebar {
+  width: 280px;
+  background: #0f1515; /* Matching Dark Aesthetic */
+  border-right: 1px solid rgba(212, 175, 55, 0.15); /* Subtle Gold Border */
+  padding: 30px 20px;
+  height: 100%;
+  overflow-y: auto;
+  flex-shrink: 0;
+  color: #fff;
+  /* Custom Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #3a5052 #0f1515;
+}
+
+.filter-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+.filter-sidebar::-webkit-scrollbar-thumb {
+  background-color: #3a5052;
+  border-radius: 10px;
+}
+
+.filter-group {
+  margin-bottom: 40px;
+}
+
+/* Headers */
+.filter-header {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #d4af37; /* Gold */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  display: block;
+  font-weight: 500;
+}
+
+/* Option Group Layout */
+.group-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Custom Checkbox Label */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* Hide Default Input */
+.checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Custom Checkmark Container */
+.custom-checkmark {
+  position: relative;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Lighter border */
+  margin-right: 15px;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover Effect */
+.checkbox-label:hover .custom-checkmark {
+  border-color: #fff; /* White on hover */
+}
+
+/* Checked State - Round Circle Animation */
+.checkbox-input:checked ~ .custom-checkmark {
+  border-color: #fff; /* White border */
+}
+
+.checkbox-input:checked ~ .custom-checkmark::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff; /* White Fill */
+  border-radius: 50%; /* Round Shape */
+  transform: scale(0); 
+  transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.checkbox-input:checked ~ .custom-checkmark::after {
+  transform: scale(1); /* Scale up circle */
+}
+
+/* Text Styling */
+.label-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #b0b0b0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.checkbox-label:hover .label-text {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.checkbox-input:checked ~ .label-text {
+  color: #fff; /* White text when active */
+  font-weight: 500;
+}
+
+/* Price Inputs */
+.price-inputs {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #666;
+}
+
+.price-field {
+  width: 90px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05); /* Glassy input */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff; /* White Text */
+  border-radius: 0; /* Sharp for modern look */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.price-select {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.price-select option {
+  background: #0f1515;
+  color: #fff;
+}
+
+.price-field:focus {
+  outline: none;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.price-field::placeholder {
+   color: #555;
+   font-size: 0.8rem;
+   text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 20px;
+  }
+  .price-inputs {
+     justify-content: space-between;
+  }
+  .price-field { width: 45%; }
+}

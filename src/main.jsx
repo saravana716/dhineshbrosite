@@ -12,20 +12,31 @@ import GetReady from './Components/getReady/GetReady.jsx'
 import Videos from './Components/videos/Videos.jsx'
 import KoskiiFooter from './Components/Ko/KoskiiFooter.jsx'
 import Swiperbanner from './Components/Swiperbanner.jsx'
-ReactDOM.createRoot(document.querySelector('#app')).render(
-    <>
-      <Navbar />
+import ProductFilterPage from './Components/ProductFilter/ProductFilterPage.jsx'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+const LandingPage = () => (
+  <>
       <Banner/>
       <Custom/>
       <Grid/>
       <Upcoming/>
       <SareeCollection/>
       <Swiperbanner/>
-
       <Bride/>
       <GetReady/>
       <Videos/>
+  </>
+);
+
+ReactDOM.createRoot(document.querySelector('#app')).render(
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/products" element={<ProductFilterPage />} />
+      </Routes>
       <KoskiiFooter/>
-      
-    </>
+    </BrowserRouter>
 )

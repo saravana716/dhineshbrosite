@@ -7,7 +7,7 @@ import c3 from "../../assets/c3.avif"
 import c4 from "../../assets/c4.avif"
 import c5 from "../../assets/c5.avif"
 import c6 from "../../assets/c6.avif"
-const ProductCard = ({ product }) => {
+export const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
 
