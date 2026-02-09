@@ -35,17 +35,18 @@ const GetReady = () => {
            <div className="deco-ring"></div>
 
            {/* Modern Text Label */}
-           <div className="modern-overline">Are You Ready?</div>
+           <div className="modern-overline">Elevate Your Elegance</div>
 
            <h1 className="elegant-heading">
-             Elegance Begins with the<br/>Perfect Drape
+             Your Signature Style<br/>Starts Here
            </h1>
            
-           <p className="tagline">"Where sarees meet soulmates — timeless tradition woven for you."</p>
+           <p className="tagline">"Where every thread tells a story of luxury. Discover the drape that was made just for you."</p>
            
            <a href="#appointment" className="cta-button">
-             Book Your Appointment
+             Begin Your Royal Journey
            </a>
+
         </div>
 
         {/* Right Side Slider */}

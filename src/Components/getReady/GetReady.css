@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+SC:wght@600;700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Outfit:wght@100..900&display=swap');
 
 * {
   margin: 0;
@@ -94,75 +94,69 @@
 
 /* Modern Label */
 .modern-overline {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #8B1C62; /* Theme Maroon */
-  letter-spacing: 3px;
-  margin-bottom: 12px;
+  color: #c9a961; /* Gold tint */
+  letter-spacing: 5px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  opacity: 1;
-  text-shadow: none;
+  gap: 15px;
 }
 
 .modern-overline::before {
   content: '';
-  width: 30px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #8B1C62);
+  width: 40px;
+  height: 1px;
+  background: #c9a961;
   display: block;
 }
 
 /* Typography */
 .elegant-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2rem;
-  font-weight: 700;
-  line-height: 1.05;
-  color: #F5F5DC; /* Theme Beige */
-  background: none;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  margin-bottom: 15px;
+  font-family: 'Marcellus', serif;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 20px;
   text-align: left;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  letter-spacing: 1px;
 }
 
 .tagline {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  color: #F5F5DC; /* Theme Beige */
+  font-size: 1.35rem;
+  color: rgba(255, 255, 255, 0.9);
   font-style: italic;
-  margin-bottom: 25px;
-  font-weight: 400;
+  margin-bottom: 35px;
+  font-weight: 450;
   letter-spacing: 0.5px;
   text-align: left;
-  line-height: 1.4;
-  text-shadow: none;
-  border-left: 3px solid #8B1C62;
-  padding-left: 15px;
+  line-height: 1.5;
+  border-left: 1px solid #c9a961;
+  padding-left: 20px;
 }
 
 /* Premium CTA Button */
 .cta-button {
-  padding: 14px 40px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
+  padding: 22px 70px; /* Further increased padding as requested */
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: #fff; /* White text */
   background: linear-gradient(135deg, #8B1C62 0%, #D4A574 100%); /* Maroon to Bronze/Gold hint */
   background-size: 200% auto;
   border: none;
-  border-radius: 50px;
+  border-radius: 60px;
   cursor: pointer;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(139, 28, 98, 0.4);
+  box-shadow: 0 10px 30px rgba(139, 28, 98, 0.5);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   position: relative;
   overflow: hidden;
   z-index: 10;

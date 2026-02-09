@@ -28,6 +28,7 @@ const Upcoming = () => {
         .upcoming-section {
           width: 100vw;
           padding: 0;
+          margin-top: clamp(40px, 8vh, 100px); /* Added significant top margin */
           background: #fdfbf7;
           display: flex;
           justify-content: center;

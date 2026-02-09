@@ -8,10 +8,6 @@ import new5 from "../../assets/q3.jpg";
 import new6 from "../../assets/q7.jpg";
 import new7 from "../../assets/g8.avif";
 import new8 from "../../assets/g1.webp";
-import new9 from "../../assets/d.png";
-import new10 from "../../assets/d.png";
-import new11 from "../../assets/d.png";
-import new12 from "../../assets/d.png";
 
 const Grid = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -76,7 +72,7 @@ const Grid = () => {
   return (
     <section className="categories-section">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Great+Vibes&family=Quicksand:wght@300..700&family=Sacramento&family=Satisfy&family=Uncial+Antiqua&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Great+Vibes&family=Quicksand:wght@300..700&family=Sacramento&family=Satisfy&family=Uncial+Antiqua&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         
         * {
           margin: 0;
@@ -90,66 +86,203 @@ position:absolute;
 left:0;
 top:0;
 }
-.po{
-position:absolute;
-right:30px;
-top:0;
-object-fit:contain;
-width:200px;
-height:200px;
-}
-.po1{
-position:absolute;
-right:30px;
-bottom:0;
-object-fit:contain;
-width:200px;
-height:200px;
-transform:rotate(90deg);
-
-}
-.po2{
-position:absolute;
-left:30px;
-top:0;
-object-fit:contain;
-width:200px;
-height:200px;
-transform:rotate(-90deg);
-
-}
-.po3{
-position:absolute;
-left:30px;
-bottom:0;
-object-fit:contain;
-width:200px;
-height:200px;
-transform:rotate(-180deg);
-
-}
+/* Corner Ornaments Removed */
         .categories-section {
           width: 100vw;
-          height: 100vh;
+          min-height: 100vh;
           padding: clamp(20px, 4vh, 60px) clamp(15px, 3vw, 40px);
-          background: linear-gradient(180deg, #E8DCC4 0%, #D4C5A9 100%);
+          background: #021a1b; /* Deep luxury base */
           position: relative;
           overflow: hidden;
           display: flex;
           flex-direction: column;
         }
 
+        /* Satin Silk Pattern Overlay */
         .categories-section::before {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          inset: 0;
           background-image: 
-            radial-gradient(circle at 15% 25%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
-            radial-gradient(circle at 85% 75%, rgba(184, 149, 111, 0.08) 0%, transparent 50%);
+            radial-gradient(circle at 10% 20%, rgba(201, 169, 97, 0.3) 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, rgba(20, 80, 85, 0.5) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(13, 50, 53, 0.7) 0%, transparent 80%);
+          z-index: 0;
+        }
+
+        /* Diagonal Satin Light Sweep */
+        .satin-sweep {
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          top: -50%;
+          left: -50%;
+          background: linear-gradient(
+            45deg,
+            transparent 45%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 55%
+          );
+          animation: satinSweep 10s infinite linear;
           pointer-events: none;
+          z-index: 1;
+        }
+
+        @keyframes satinSweep {
+          0% { transform: translate(-30%, -30%) rotate(0deg); }
+          100% { transform: translate(30%, 30%) rotate(0deg); }
+        }
+
+        /* Luxury Silk Watermark Pattern */
+        .silk-pattern {
+          position: absolute;
+          inset: 0;
+          opacity: 0.03;
+          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30-15-30z' fill='%23C9A961' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+          background-size: 60px 60px;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        /* Golden Sparkle Dust */
+        .sparkle-dust {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .particle {
+          position: absolute;
+          background: radial-gradient(circle, #C9A961 20%, transparent 70%);
+          border-radius: 50%;
+          filter: blur(1px);
+          opacity: 0;
+          animation: particleFloat var(--float-duration, 15s) infinite linear, 
+                     twinkle var(--twinkle-duration, 4s) infinite ease-in-out;
+          animation-delay: var(--delay, 0s);
+          box-shadow: 0 0 15px rgba(201, 169, 97, 0.4);
+        }
+
+        @keyframes particleFloat {
+          0% { transform: translateY(100%) scale(0.5); opacity: 0; }
+          20% { opacity: 0.4; }
+          50% { opacity: 0.7; }
+          80% { opacity: 0.4; }
+          100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes twinkle {
+          0%, 100% { opacity: var(--min-opacity, 0.2); }
+          50% { opacity: var(--max-opacity, 0.8); }
+        }
+
+        /* Ambient Lights */
+        .aura-blob {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(100px);
+          z-index: 0;
+          opacity: 0.4;
+          animation: auraFloat 20s infinite alternate ease-in-out;
+        }
+
+        .blob-1 {
+          width: 800px;
+          height: 800px;
+          background: radial-gradient(circle, #C9A961 0%, transparent 70%);
+          top: -200px;
+          right: -100px;
+        }
+
+        .blob-2 {
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, #145055 0%, transparent 70%);
+          bottom: -100px;
+          left: -100px;
+          animation-delay: -5s;
+        }
+
+        @keyframes auraFloat {
+          0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.4; }
+          50% { opacity: 0.6; }
+          100% { transform: translate(100px, 100px) scale(1.3) rotate(15deg); opacity: 0.4; }
+        }
+
+        /* Prismatic Light Rays */
+        .prismatic-ray {
+          position: absolute;
+          width: 2px;
+          height: 200%;
+          background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            rgba(201, 169, 97, 0.3),
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          filter: blur(8px);
+          transform: rotate(35deg);
+          animation: rayScan var(--duration) linear infinite;
+          opacity: 0.6;
+          z-index: 1;
+        }
+
+        @keyframes rayScan {
+          0% { transform: translate(-100%, -50%) rotate(35deg); }
+          100% { transform: translate(200%, 50%) rotate(35deg); }
+        }
+
+        /* Glass Sheen Overlay */
+        .glass-sheen {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            125deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0) 70%
+          );
+          background-size: 200% 200%;
+          animation: sheenShift 8s ease infinite;
+          pointer-events: none;
+          z-index: 2;
+        }
+
+        @keyframes sheenShift {
+          0% { background-position: -100% -100%; }
+          100% { background-position: 100% 100%; }
+        }
+
+        /* Glossy Circle Effects */
+        .gloss-orb {
+          position: absolute;
+          border-radius: 50%;
+          background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, rgba(201, 169, 97, 0.1) 40%, transparent 70%);
+          filter: blur(25px);
+          z-index: 1;
+          pointer-events: none;
+          animation: orbFloat var(--duration) ease-in-out infinite;
+          mix-blend-mode: screen;
+        }
+
+        @keyframes orbFloat {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+          50% { transform: translate(var(--move-x), var(--move-y)) scale(1.2); opacity: 0.6; }
+        }
+
+        .categories-section::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+          opacity: 0.1;
+          pointer-events: none;
+          mix-blend-mode: overlay;
+          z-index: 2;
         }
 
         .categories-container {
@@ -160,12 +293,16 @@ transform:rotate(-180deg);
           display: flex;
           align-items: center;
           justify-content: flex-start;
-          z-index: 1;
+          z-index: 3;
           display: flex;
           flex-direction: column;
-          border-left: 4px solid #293839;
-          border-right: 4px solid #293839;
-          borradius: 12px;
+          border-left: 1px solid rgba(201, 169, 97, 0.3);
+          border-right: 1px solid rgba(201, 169, 97, 0.3);
+          border-radius: 40px;
+          background: rgba(0, 0, 0, 0.1); 
+          backdrop-filter: blur(15px);
+          padding: clamp(10px, 2vh, 40px);
+          box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
         }
 
         .categories-header {
@@ -187,35 +324,43 @@ transform:rotate(-180deg);
         }
 
         .categories-main-title {
-          font-size: clamp(1.8rem, 5vw, 3.5rem);
-          font-weight: 700;
-          color: #2d3e3f;
+          font-size: clamp(1.8rem, 5vw, 4.5rem);
+          font-weight: 900;
+          color: #fdfaf3;
           margin-bottom: 0.5rem;
-          letter-spacing: clamp(1px, 0.3vw, 3px);
+          letter-spacing: clamp(4px, 0.6vw, 10px);
           text-transform: uppercase;
           position: relative;
           display: inline-block;
-          font-style: italic;
           font-family: 'Playfair Display', serif;
+          text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+          background: linear-gradient(135deg, #fdfaf3 0%, #C9A961 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         .categories-main-title::after {
           content: '';
           position: absolute;
-          bottom: -10px;
+          bottom: -15px;
           left: 50%;
           transform: translateX(-50%);
-          width: clamp(60px, 10vw, 100px);
-          height: clamp(2px, 0.3vh, 4px);
+          width: clamp(80px, 15vw, 150px);
+          height: 3px;
           background: linear-gradient(90deg, transparent, #C9A961, transparent);
           border-radius: 2px;
+          box-shadow: 0 2px 10px rgba(201, 169, 97, 0.3);
         }
 
         .categories-subtitle {
-          font-size: clamp(0.9rem, 1.5vw, 1rem);
-          color: #5a6c6d;
-          margin-top: clamp(15px, 2vh, 30px);
-          font-weight: 400;
+          font-size: clamp(1.1rem, 2vw, 1.6rem);
+          color: #C9A961;
+          margin-top: clamp(25px, 4vh, 50px);
+          font-weight: 600;
+          font-family: 'Playfair Display', serif;
+          font-style: italic;
+          letter-spacing: 2px;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .bento-grid {
@@ -224,9 +369,9 @@ transform:rotate(-180deg);
           grid-auto-rows: minmax(0, 1fr);
           gap: clamp(10px, 1.5vw, 20px);
           animation: fadeInUp 1s ease;
-          // flex: 1;
-          width: 65%;
-          height: 450px;
+          width: 75%;
+          height: 480px;
+          margin: 0 auto;
         }
 
         @keyframes fadeInUp {
@@ -246,9 +391,10 @@ transform:rotate(-180deg);
           overflow: hidden;
           cursor: pointer;
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 0 8px 25px rgba(45, 62, 63, 0.15);
-          border: 2px solid rgba(201, 169, 97, 0.2);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(201, 169, 97, 0.2);
           min-height: 0;
+          background: rgba(255, 255, 255, 0.05);
         }
 
         .category-card.tall-wide {
@@ -266,10 +412,34 @@ transform:rotate(-180deg);
           grid-row: span 1;
         }
 
+        /* Glossy Light Sweep Effect */
+        .category-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -150%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+          );
+          transform: skewX(-20deg);
+          transition: 0.8s;
+          z-index: 4;
+          pointer-events: none;
+        }
+
+        .category-card:hover::before {
+          left: 150%;
+        }
+
         .category-card:hover {
-          transform: translateY(-8px) scale(1.02);
-          box-shadow: 0 25px 60px rgba(45, 62, 63, 0.25);
-          border-color: #C9A961;
+          transform: translateY(-12px) scale(1.02);
+          box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 20px rgba(201, 169, 97, 0.3);
+          border-color: rgba(201, 169, 97, 0.6);
           z-index: 10;
         }
 
@@ -455,6 +625,49 @@ transform:rotate(-180deg);
       `}</style>
 
       <div className="categories-container">
+        <div className="silk-pattern" />
+        <div className="satin-sweep" />
+        <div className="sparkle-dust">
+          {[...Array(25)].map((_, i) => {
+            const size = Math.random() * 6 + 2;
+            const duration = Math.random() * 10 + 15;
+            const delay = Math.random() * -20;
+            const twinkleDuration = Math.random() * 3 + 3;
+            const left = Math.random() * 100;
+            
+            return (
+              <div 
+                key={i} 
+                className="particle"
+                style={{
+                  left: `${left}%`,
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  '--float-duration': `${duration}s`,
+                  '--twinkle-duration': `${twinkleDuration}s`,
+                  '--delay': `${delay}s`,
+                  '--min-opacity': Math.random() * 0.2 + 0.1,
+                  '--max-opacity': Math.random() * 0.5 + 0.4
+                }}
+              />
+            );
+          })}
+        </div>
+        <div className="aura-blob blob-1" />
+        <div className="aura-blob blob-2" />
+        
+        {/* Prismatic Rays */}
+        <div className="prismatic-ray" style={{ '--duration': '12s', top: '0', left: '10%' }} />
+        <div className="prismatic-ray" style={{ '--duration': '15s', top: '20%', left: '40%' }} />
+        <div className="prismatic-ray" style={{ '--duration': '18s', top: '10%', left: '70%' }} />
+        
+        {/* Glossy Orbs */}
+        <div className="gloss-orb" style={{ width: '200px', height: '200px', top: '10%', left: '15%', '--duration': '10s', '--move-x': '30px', '--move-y': '20px' }} />
+        <div className="gloss-orb" style={{ width: '350px', height: '350px', bottom: '15%', right: '10%', '--duration': '15s', '--move-x': '-50px', '--move-y': '-30px' }} />
+        <div className="gloss-orb" style={{ width: '150px', height: '150px', top: '40%', right: '25%', '--duration': '12s', '--move-x': '40px', '--move-y': '-40px' }} />
+
+        <div className="glass-sheen" />
+        
         <div className="categories-header">
           <h2 className="categories-main-title">Shop by Category</h2>
           <p className="categories-subtitle">Discover Your Perfect Saree</p>
@@ -483,10 +696,6 @@ transform:rotate(-180deg);
             </div>
           ))}
         </div>
-        <img src={new9} alt="" className='po'/>
-        <img src={new10} alt="" className='po1'/>
-        <img src={new11} alt="" className='po2'/>
-        <img src={new12} alt="" className='po3'/>
       </div>
 
     </section>
